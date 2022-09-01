@@ -17,6 +17,7 @@
 
 .page {
   margin: 0;
+  padding-top: 81px;
 
   color: var(--primary-text-color);
   background-color: var(--primary-bgc);
@@ -80,6 +81,12 @@ img {
 /*HEADER*/
 
 .header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  min-height: fit-content;
+  z-index: 1;
   box-sizing: border-box;
   border-bottom: 1px solid #ececec;
 
@@ -615,6 +622,7 @@ img {
 
 .backdrop {
   position: fixed;
+  z-index: 2;
   top: 0;
   left: 0;
   width: 100%;
