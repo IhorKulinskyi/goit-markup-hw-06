@@ -138,11 +138,11 @@ img {
   margin-right: 50px;
 }
 
-.nav-link .current {
+.site-nav .current {
   position: relative;
 }
 
-.nav-link .current::after {
+ .nav-link .current.link::after{
   content: "";
   position: absolute;
   bottom: 0;
@@ -158,12 +158,42 @@ img {
   border-radius: 2px;
 }
 
+.nav-link{
+  position: relative;
+}
+
+.nav-link .link::after{
+    content: "";
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  transform: translateY(1.3px) scaleX(0);
+  display: block;
+  width: 100%;
+  height: 4px;
+
+  background-color: var(--accent-color);
+  margin: 0;
+
+  border-radius: 2px;
+
+  transition: transform var(--transition-time) var(--bezier-function);
+}
+
+.nav-link .link:hover::after,
+.nav-link .link:focus::after{
+  transform:translateY(1.3px) scaleX(1);
+}
+
+
 .site-nav .link:hover,
 .site-nav .link:focus,
 .site-nav .link:active,
 .site-nav .current {
   color: var(--accent-color);
 }
+
+
 
 /*Header Cotacts*/
 
@@ -354,6 +384,7 @@ img {
 
   color: var(--basic-white);
 }
+
 
 /*Team*/
 
