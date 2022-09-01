@@ -12,7 +12,7 @@
   --icon-color: #afb1b8;
   --bezier-function: cubic-bezier(0.4, 0, 0.2, 1);
   --transition-time: 250ms;
-  --cross-color:#000;
+  --cross-color: #000;
 }
 
 .page {
@@ -142,7 +142,7 @@ img {
   position: relative;
 }
 
- .nav-link .current.link::after{
+.nav-link .current.link::after {
   content: "";
   position: absolute;
   bottom: 0;
@@ -158,12 +158,12 @@ img {
   border-radius: 2px;
 }
 
-.nav-link{
+.nav-link {
   position: relative;
 }
 
-.nav-link .link::after{
-    content: "";
+.nav-link .link::after {
+  content: "";
   position: absolute;
   bottom: 0;
   right: 0;
@@ -181,10 +181,9 @@ img {
 }
 
 .nav-link .link:hover::after,
-.nav-link .link:focus::after{
-  transform:translateY(1.3px) scaleX(1);
+.nav-link .link:focus::after {
+  transform: translateY(1.3px) scaleX(1);
 }
-
 
 .site-nav .link:hover,
 .site-nav .link:focus,
@@ -192,8 +191,6 @@ img {
 .site-nav .current {
   color: var(--accent-color);
 }
-
-
 
 /*Header Cotacts*/
 
@@ -384,7 +381,6 @@ img {
 
   color: var(--basic-white);
 }
-
 
 /*Team*/
 
@@ -673,12 +669,12 @@ img {
   cursor: pointer;
 }
 
-.close-button:active{
+.close-button:active {
   opacity: 0.5;
 }
 
-.close-button:hover .icon-close{
-  --cross-color:var(--accent-color);
+.close-button:hover .icon-close {
+  --cross-color: var(--accent-color);
 }
 
 /*PORTFOLIO*/
