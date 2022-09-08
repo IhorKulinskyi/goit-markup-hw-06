@@ -852,7 +852,9 @@ img {
 
 .policy .policy-link {
   color: var(--accent-color);
+  
   text-decoration: underline;
+  text-underline-offset: 2.5px;
 }
 
 .hide-checkbox {
