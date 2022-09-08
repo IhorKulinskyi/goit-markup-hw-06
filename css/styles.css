@@ -12,7 +12,6 @@
   --icon-color: #afb1b8;
   --bezier-function: cubic-bezier(0.4, 0, 0.2, 1);
   --transition-time: 250ms;
-  --cross-color: #000;
 }
 
 .page {
@@ -501,6 +500,7 @@ img {
 }
 
 .customer-link .icon {
+  fill: var(--icon-color);
   transition: fill var(--transition-time) var(--bezier-function);
 }
 
@@ -578,11 +578,7 @@ img {
   margin-bottom: 10px;
 }
 
-.footer-social{
-  margin-right: 95px;
-}
-
-.footer-social .title ,
+.footer-social .title,
 .footer-mail .title {
   font-size: 14px;
   line-height: 1.14;
@@ -616,30 +612,37 @@ img {
   background-color: var(--accent-color);
 }
 
-.mail-input{
+.footer-form {
+  margin-left: auto;
+}
+
+.mail-input {
   display: flex;
   flex-direction: column;
-  
+
   margin-right: 12px;
 }
 
-.footer-mail{
+.footer-mail {
   display: flex;
   align-items: flex-end;
 }
 
-.footer-input{
+.footer-input {
+  width: 360px;
+  padding: 15px;
+
   border: 1px solid rgba(255, 255, 255, 0.3);
-/* filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.15)); */
-border-radius: 4px;
+  border-radius: 4px;
 
-background-color: var(--accent-bgc);
-width: 360px;
-padding: 15px;
-
+  background-color: var(--accent-bgc);
 }
 
-.footer-mail .button{
+.footer-mail .icon-send {
+  margin-left: 10px;
+}
+
+.footer-mail .button {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -654,10 +657,13 @@ padding: 15px;
   line-height: 1.88;
   letter-spacing: 0.06em;
 
-  transition: color var(--transition-time) var(--bezier-function),
-    background-color var(--transition-time) var(--bezier-function);
+  transition: background-color var(--transition-time) var(--bezier-function);
 }
 
+.footer-mail .button:focus,
+.footer-mail .button:hover {
+  background-color: var(--accent-button-color);
+}
 
 /* Modal Window */
 
@@ -686,9 +692,6 @@ padding: 15px;
   position: absolute;
   top: 50%;
   left: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
   transform: translate(-50%, -50%) scale(1);
   opacity: 1;
   transition: transform var(--transition-time) var(--bezier-function),
@@ -696,6 +699,8 @@ padding: 15px;
 
   width: 530px;
   height: 580px;
+
+  padding: 40px 0;
 
   background-color: var(--basic-white);
   box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14),
@@ -724,8 +729,18 @@ padding: 15px;
   opacity: 0.5;
 }
 
+.close-button .icon-close {
+  box-sizing: border-box;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 50%;
+
+  fill: var(--primary-text-color);
+
+  transition: fill var(--transition-time) var(--bezier-function);
+}
+
 .close-button:hover .icon-close {
-  --cross-color: var(--accent-color);
+  fill: var(--accent-color);
 }
 
 /* Form */
@@ -748,9 +763,12 @@ padding: 15px;
 
 .form {
   width: 450px;
+  margin: auto;
 }
 
 .form-field {
+  position: relative;
+
   display: flex;
   flex-direction: column;
 
@@ -758,13 +776,47 @@ padding: 15px;
 }
 
 .form-field .input {
+  display: block;
+  height: 40px;
   border: 1px solid rgba(33, 33, 33, 0.2);
   border-radius: 4px;
-  padding: 14px;
+  padding: 14px 14px 14px 40px;
+
+  transition: border-color var(--transition-time) var(--bezier-function);
 }
 
-.form-field .comment {
+.form-field .input:focus {
+  outline: none;
+  border-color: var(--accent-color);
+}
+
+.form-field .icon-modal {
+  display: inline-block;
+  fill: var(--primary-text-color);
+
+  transition: fill var(--transition-time) var(--bezier-function);
+}
+
+.form-field .input:focus ~ .icon-modal {
+  fill: var(--accent-color);
+}
+
+.form-field .icon-person,
+.form-field .icon-phone,
+.form-field .icon-email {
+  position: absolute;
+  top: 50%;
+  left: 15px;
+}
+
+.form-field.comment {
+  margin-bottom: 20px;
+}
+
+.form-field .type-comment {
   resize: none;
+  padding: 14px;
+  height: 120px;
 }
 
 .form-field .comment::placeholder {
@@ -784,6 +836,10 @@ padding: 15px;
 }
 
 .policy .description {
+  display: inline-flex;
+  align-items: center;
+  margin-left: auto;
+  margin-right: auto;
   text-align: center;
   margin-bottom: 0;
 }
@@ -791,6 +847,38 @@ padding: 15px;
 .policy .policy-link {
   color: var(--accent-color);
   text-decoration: underline;
+}
+
+.hide-checkbox {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+.icon-check {
+  display: inline-block;
+  width: 16px;
+  height: 15px;
+
+  margin-right: 7px;
+
+  box-sizing: content-box;
+  border: 2px solid var(--primary-text-color);
+  border-radius: 4px;
+}
+
+.icon-check .check {
+  display: none;
+}
+
+.hide-checkbox:checked ~ .icon-check > .check {
+  display: block;
+}
+
+.hide-checkbox:checked ~ .icon-check {
+  border: 2px solid var(--accent-color);
+  background-color: var(--accent-color);
+  border-radius: 4px;
 }
 
 .form .button {
