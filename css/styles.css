@@ -635,7 +635,17 @@ img {
   border: 1px solid rgba(255, 255, 255, 0.3);
   border-radius: 4px;
 
+  color: var(--basic-white);
+
   background-color: var(--accent-bgc);
+}
+
+.footer-input::placeholder {
+  font-size: 16px;
+  line-height: 1.25;
+  letter-spacing: 0.03em;
+
+  color: rgba(255, 255, 255, 0.6);
 }
 
 .footer-mail .icon-send {
@@ -698,9 +708,8 @@ img {
     opacity var(--transition-time) var(--bezier-function);
 
   width: 530px;
-  height: 580px;
 
-  padding: 40px 0;
+  padding: 40px;
 
   background-color: var(--basic-white);
   box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14),
@@ -758,21 +767,7 @@ img {
 
   font-size: 12px;
   line-height: 1.16;
-  letter-spacing: 0.01;
-}
-
-.form {
-  width: 450px;
-  margin: auto;
-}
-
-.form-field {
-  position: relative;
-
-  display: flex;
-  flex-direction: column;
-
-  margin-bottom: 10px;
+  letter-spacing: 0.01em;
 }
 
 .form-field .input {
@@ -780,7 +775,13 @@ img {
   height: 40px;
   border: 1px solid rgba(33, 33, 33, 0.2);
   border-radius: 4px;
-  padding: 14px 14px 14px 40px;
+  padding: 0 14px 0 40px;
+
+  font-size: 12px;
+  line-height: 1.16;
+  letter-spacing: 0.01em;
+
+  color: rgba(117, 117, 117, 0.5);
 
   transition: border-color var(--transition-time) var(--bezier-function);
 }
@@ -801,12 +802,21 @@ img {
   fill: var(--accent-color);
 }
 
+.input-container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+
+  margin-bottom: 10px;
+}
+
 .form-field .icon-person,
 .form-field .icon-phone,
 .form-field .icon-email {
   position: absolute;
   top: 50%;
-  left: 15px;
+  left: 24px;
+  transform: translate(-50%, -50%);
 }
 
 .form-field.comment {
@@ -817,17 +827,19 @@ img {
   resize: none;
   padding: 14px;
   height: 120px;
+  width: 100%;
 }
 
 .form-field .comment::placeholder {
   font-size: 12px;
   line-height: 1.16;
-  letter-spacing: 0.01;
+  letter-spacing: 0.01em;
 
   opacity: 0.5;
 }
 
 .policy {
+  text-align: center;
   margin-bottom: 30px;
 
   font-size: 14px;
@@ -835,7 +847,7 @@ img {
   letter-spacing: 0.03;
 }
 
-.policy .conditions{
+.policy .conditions {
   font-size: 14px;
   line-height: 1.71;
   letter-spacing: 0.03;
@@ -852,9 +864,13 @@ img {
 
 .policy .policy-link {
   color: var(--accent-color);
-  
+
   text-decoration: underline;
   text-underline-offset: 2.5px;
+}
+
+.policy-link:hover {
+  text-decoration: none;
 }
 
 .hide-checkbox {
@@ -864,15 +880,20 @@ img {
 }
 
 .icon-check {
-  display: inline-block;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   width: 16px;
   height: 15px;
 
   margin-right: 7px;
 
-  box-sizing: content-box;
   border: 2px solid var(--primary-text-color);
-  border-radius: 4px;
+  border-radius: 2px;
+}
+
+.policy .hide-checkbox:focus + .icon-check {
+  border-color: var(--accent-color);
 }
 
 .icon-check .check {
