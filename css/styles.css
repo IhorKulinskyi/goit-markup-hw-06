@@ -898,6 +898,7 @@ img {
 
 .icon-check .check {
   display: none;
+  scale: 1.5;
 }
 
 .hide-checkbox:checked ~ .icon-check > .check {
